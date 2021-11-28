@@ -7,14 +7,14 @@ class Cliente(models.Model):
     numero=models.IntegerField()
 
     def __str__(self):
-        return f'Cliente Numero:  {self.numero}'
+        return f'Cliente Numero: {self.numero}. Nombre: {self.nombre}. Apellido: {self.apellido}'
 class Auto(models.Model):
     modelo=models.CharField(max_length=20)
     marca=models.CharField(max_length=20)
     id_auto=models.IntegerField()
 
     def __str__(self):
-        return f'ID de auto  {self.id_auto}'
+        return f'ID de auto  {self.id_auto}. Modelo: {self.modelo}. Marca: {self.marca}'
     
 class Viaje(models.Model):
     origen=models.CharField(max_length=20)
@@ -25,4 +25,4 @@ class Viaje(models.Model):
     id_viaje=models.IntegerField()
     
     def __str__(self):
-        return f'ID de viaje:  {self.id_viaje}'
+        return f'ID de viaje: {self.id_viaje}. Origen: {self.origen}. Destino: {self.destino}'

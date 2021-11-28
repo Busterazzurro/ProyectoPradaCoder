@@ -104,6 +104,5 @@ def crear_viajes(request):
             #return render(request, 'AppPrada/lista_viajes.html', {'autos': None, 'error': None})
             return redirect('Viajes')
     
-    
     formulario = ViajesFormulario()
     return render(request, 'AppPrada/formulario_viaje.html', {'formulario': formulario})

@@ -1,4 +1,6 @@
 
+{% extends 'AppPrada/inicio.html' %}
+
 {% block head_block %} 
    
     <title>Crear Viaje</title>
@@ -11,7 +13,7 @@
 
 
     <form action={% url 'Crear_viaje' %} method="POST">
-        {%csrf_token%}
+        {% csrf_token %}
         {{formulario.as_table}}
         <input type="submit" value="Crear"/>
     </form>
