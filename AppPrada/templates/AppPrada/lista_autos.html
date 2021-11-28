@@ -1,0 +1,30 @@
+{% extends 'AppPrada/inicio.html' %}
+
+{% block head_block %} 
+   
+    <title>Autos</title>
+
+{% endblock head_block %}
+
+{% block body_block %}
+   
+    <h1>Autos</h1> <a href={% url 'Crear_auto' %}>Crear Auto</a>
+
+    <form action={% url 'Autos' %} method="GET">
+        <input type="text" name='id_auto' placeholder="ID del auto a buscar..."/>
+        <input type="submit" value="Buscar"/>
+    </form>
+
+    <ul>
+    {% if autos%}
+        {% for auto in autos%}
+            <li>
+                {{auto}}
+            </li>
+        {% endfor %}
+    {% else %}
+        <h3>{{error}}</h3>
+    {% endif %}
+    </ul>
+
+ {% endblock body_block %}

@@ -1,0 +1,31 @@
+
+{% extends 'AppPrada/inicio.html' %}
+
+{% block head_block %} 
+   
+    <title>Viajes</title>
+
+{% endblock head_block %}
+
+{% block body_block %}
+   
+    <h1>Viajes</h1> <a href={% url 'Crear_viaje' %}>Crear Viaje</a>
+
+    <form action={% url 'Viajes' %} method="GET">
+        <input type="text" name='id_viaje' placeholder="ID de viaje a buscar..."/>
+        <input type="submit" value="Buscar"/>
+    </form>
+
+    <ul>
+    {% if viajes%}
+        {% for viaje in viajes%}
+            <li>
+                {{viajes}}
+            </li>
+        {% endfor %}
+    {% else %}
+        <h3>{{error}}</h3>
+    {% endif %}
+    </ul>
+
+ {% endblock body_block %}
