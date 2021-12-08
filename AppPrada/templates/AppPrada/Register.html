@@ -1,0 +1,29 @@
+
+
+{% extends 'AppPrada/inicio.html' %}
+
+{% block head_block %} 
+   
+    <title>Registro</title>
+
+{% endblock head_block %}
+
+{% block body_block %}
+   
+    <h1>Registro</h1>
+
+    {% if error %}
+
+        <h1>{{mensaje}}</h1>
+
+    {% endif %}
+
+    <form action='' method="POST">
+        {%csrf_token%}
+        <table>
+            {{form}}
+        </table>
+        <input type="submit" value="Registrar"/>
+    </form>
+
+ {% endblock body_block %}

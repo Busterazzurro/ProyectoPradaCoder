@@ -1,0 +1,30 @@
+
+
+
+{% extends 'AppPrada/inicio.html' %}
+
+{% block head_block %} 
+   
+    <title>Login</title>
+
+{% endblock head_block %}
+
+{% block body_block %}
+   
+    <h1>Login</h1>
+
+    {% if error %}
+
+        <h1>{{mensaje}}</h1>
+
+    {% endif %}
+
+    <form action='' method="POST">
+        {%csrf_token%}
+        <table>
+            {{form}}
+        </table>
+        <input type="submit" value="Login"/>
+    </form>
+
+ {% endblock body_block %}

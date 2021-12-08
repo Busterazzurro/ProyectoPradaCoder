@@ -16,10 +16,18 @@
         <a href={% url 'Inicio' %}>Inicio</a>
         <a href={% url 'Clientes' %}>Clientes</a>
         <a href={% url 'Autos' %}>Autos</a>
-        <a href={% url 'Viajes' %}>Viajes</a>    
+        <a href={% url 'Viajes' %}>Viajes</a>
+        <a href={% url 'Index' %}>Index</a>      
     </nav>
+
+    {% if tiene_mensaje%}
+
+        <h3>{{mensaje}}</h3>
+
+    {%endif%}
+
     {% block body_block %}
-        <h1>Bienvenido</h1>
+        <h3>Bienvenido</h3>
     {% endblock body_block %}
 </body>
 </html>
