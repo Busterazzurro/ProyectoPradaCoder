@@ -1,28 +1,34 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
-class Cliente(models.Model):
+    #nuevas clasess
+class Clientes(models.Model):
     nombre=models.CharField(max_length=20)
     apellido=models.CharField(max_length=20)
-    numero=models.IntegerField()
-
-    def __str__(self):
-        return f'Cliente Numero: {self.numero}. Nombre: {self.nombre}. Apellido: {self.apellido}'
-class Auto(models.Model):
-    modelo=models.CharField(max_length=20)
-    marca=models.CharField(max_length=20)
-    id_auto=models.IntegerField()
-
-    def __str__(self):
-        return f'ID de auto  {self.id_auto}. Modelo: {self.modelo}. Marca: {self.marca}'
-    
-class Viaje(models.Model):
-    origen=models.CharField(max_length=20)
+    email=models.EmailField()
+    barrio=models.CharField(max_length=20)
     destino=models.CharField(max_length=20)
-    conductor=models.CharField(max_length=20)
-    preferencia_aire_acondicionado=models.BooleanField()
-    pago_online=models.BooleanField()
-    id_viaje=models.IntegerField()
     
     def __str__(self):
-        return f'ID de viaje: {self.id_viaje}. Origen: {self.origen}. Destino: {self.destino}'
+        return f' Nombre: {self.nombre}. Apellido: {self.apellido}. Email: {self.email}. Barrio: {self.barrio}. Destino: {self.destino}.'
+class Empresas(models.Model):
+    nombre_empresa=models.CharField(max_length=20)
+    email_empresa=models.EmailField()
+    tamano_camion=models.CharField(max_length=20)
+    imagen=models.ImageField(upload_to='empresas', null=True, blank=True)
+    
+    def __str__(self):
+        return f' Nombre de la Empresa: {self.nombre_empresa}. Email: {self.email_empresa}. Tamaño del Camion: {self.tamano_camion}.'
+        
+class Comentarios(models.Model):
+    nombre_empresa=models.CharField(max_length=20)
+    puntuacion=models.CharField(max_length=1)
+    comentario=models.CharField(max_length=50)
+    
+    def __str__(self):
+        return f' Nombre de la Empresa: {self.nombre_empresa}. Puntuacion (0-5): {self.puntuacion}. Comentario: {self.comentario}.'
+    
+class Avatar(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    avatar = models.ImageField(upload_to='avatares', null=False, blank=False)

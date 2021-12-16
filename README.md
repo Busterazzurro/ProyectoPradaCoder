@@ -1,3 +1,7 @@
+
+Roberto Prada
+
+
 Pasos a seguir para probar el proyecto
 
 - Iniciar pipenv
@@ -7,11 +11,10 @@ Pasos a seguir para probar el proyecto
 - Levantar servidor con runserver a la altura del manage
 
 #Crear
-Se puede crear clientes, autos y viajes seleccionando segun la opcion requerida.
-    Al crear ya sea el cliente, el auto o el viaje se redirigido a la pagina de busca.
+Se puede crear clientes, empresas y comentarios seleccionando segun la opcion requerida.
+    Al crear ya sea el cliente, la empresa o el comentariosse redirigido a la pagina de busca.
 
-#Buscar
-Se puede visualizar la info creada con todos los datos ingresados. ingresanbdo el valor correspondiente:
-    para Cliente: Numero del cliente
-    para Auto: ID del auto
-    para el viaje: ID del viaje
+Se requiere de login en los casos:
+    Registrar nuevo cliente, empresa, comentario
+    Editar nuevo cliente, empresa, comentario
+        Editar imagen de camion.

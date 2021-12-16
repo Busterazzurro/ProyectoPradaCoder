@@ -1,15 +1,20 @@
 
-{% extends 'AppPrada/inicio.html' %}
+{%extends 'AppPrada/lay_out.html'%}
 
-{% block head_block %} 
-   
-    <title>Logout</title>
+{% block content %} 
 
-{% endblock head_block %}
+    <div class="masthead-content text-center">
+        <h1 class="display-4">Logout</h1>
+    </div>
 
-{% block body_block %}
-   
-    <h3>Usted se ha desloqueago...</h3>
+    <div class="masthead-content text-center">
+        <h3 class="display-6">Usted se ha desloqueago...</h3>
+    </div>
 
- {% endblock body_block %}
+<div class="masthead-content text-center">
+    <a class="btn btn-primary btn-lg" href={%url 'Login'%}>Ingresar Nuevamente</a>
+</div>
+    
+
+ {% endblock content %}
     

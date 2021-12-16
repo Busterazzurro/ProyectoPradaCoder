@@ -1,0 +1,48 @@
+
+
+
+
+{%extends 'AppPrada/lay_out.html'%}
+
+{% block content %}
+<header class="masthead text-right ">
+    <p
+    <div class="container px-5">
+        <a class="btn btn-primary btn-lg rounded-pill mt-5" href={%url 'agregarclientes'%}>Registrate!</a>
+    </div>
+    </p>
+</header>
+
+<div class="container">
+
+<table class="table table-striped text-center">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Email</th>
+      <th scope="col">Barrio</th>
+      <th scope="col">Destino</th>
+      <th scope="col">Accion</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for clientes in clientes %}
+    <tr>
+      <th scope="row">{{ clientes.id}}</th>
+      <td>{{clientes.nombre}}</td>
+      <td>{{clientes.apellido}}</td>
+      <td>{{clientes.email}}</td>
+      <td>{{clientes.barrio}}</td>
+      <td>{{clientes.destino}}</td>
+      <td>
+        <a class="btn btn-warning btn-sm" href="{% url 'editarclientes' clientes.id %}">Editar</a>
+        <a class="btn btn-danger btn-sm" href="{% url 'eliminarclientes' clientes.id %}">Eliminar</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock content %}

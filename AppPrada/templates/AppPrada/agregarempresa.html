@@ -1,0 +1,24 @@
+{%extends 'AppPrada/lay_out.html'%}
+
+{% block content %}
+
+<div class= "container px-5 text-center">
+<a class="btn btn-primary" href={%url 'empresas'%}>Empresas Aliadas</a>
+    <form method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
+  <div class="form-group">
+</div>
+
+<div class= "container">
+    <div class="row">
+        <table class="table table-striped justify-content-center row">
+            {{ form }}      
+        </table>
+    </div>
+
+</div>
+
+  <button type="submit" class="btn btn-success ">Registrar</button>
+</form>
+
+{% endblock content %}
