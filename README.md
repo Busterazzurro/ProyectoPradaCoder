@@ -18,3 +18,8 @@ Se requiere de login en los casos:
     Registrar nuevo cliente, empresa, comentario
     Editar nuevo cliente, empresa, comentario
         Editar imagen de camion.
+
+Video Sobre Proyecto:
+ Ingresar a al link y descargar
+
+ https://drive.google.com/file/d/1Bazv7MvYiCzPJnDunqCdQm7lMmKw2PHp/view?usp=sharing
