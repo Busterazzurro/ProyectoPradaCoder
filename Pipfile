@@ -5,6 +5,9 @@ name = "pypi"
 
 [packages]
 pillow = "*"
+asgiref = "*"
+pytz = "*"
+sqlparse = "*"
 
 [dev-packages]
 

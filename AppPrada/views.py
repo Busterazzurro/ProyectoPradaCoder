@@ -3,7 +3,7 @@ from django.http import request
 from django.http.response import HttpResponse
 from django.shortcuts import redirect, render
 from .models import  Avatar, Clientes, Comentarios, Empresas
-from .forms import AvatarForm, EditarUsuarioForm, EmpresasForm, ClientesForm, ComentariosForm
+from .forms import AvatarForm, EditarUsuarioForm, EmpresasForm, ClientesForm, ComentariosForm, RegistroUsuarioForm
 from django.template import loader
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, authenticate
@@ -58,7 +58,7 @@ def login_request(request):
 def register_request(request):
     
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegistroUsuarioForm(request.POST)
         
         if form.is_valid():
             
@@ -68,9 +68,26 @@ def register_request(request):
             
             return render(request, 'AppPrada/index.html', {'tiene_mensaje': True, 'mensaje': f'Se Registró el user: {username}!'})
            
-    form = UserCreationForm()
+    form = RegistroUsuarioForm()
     
     return render(request, 'AppPrada/register.html', {'form': form, 'mensaje': '','error': False})
+
+#def register_request(request):
+    
+#    if request.method == 'POST':
+#        form = UserCreationForm(request.POST)
+        
+ #       if form.is_valid():
+            
+ #           username = form.cleaned_data.get('username')
+            
+ #           form.save()
+            
+ #           return render(request, 'AppPrada/index.html', {'tiene_mensaje': True, 'mensaje': f'Se Registró el user: {username}!'})
+           
+ #   form = UserCreationForm()
+    
+ #   return render(request, 'AppPrada/register.html', {'form': form, 'mensaje': '','error': False})
 
 #########################################################################
 #EDITAR_USER
@@ -87,18 +104,19 @@ def editar_user(request):
             
             datos = form.cleaned_data
             
-            username.username = datos['username']
+            username.email = datos['email']
             username.password1 = datos['password1']
             username.password2 = datos['password2']
             username.first_name = datos['first_name']
             username.last_name = datos['last_name']
+            
             
             username.save()
             
             return render(request, 'AppPrada/index.html', {'tiene_mensaje': True, 'mensaje':'Se Editó Correctamente!'})
     else:
                
-        form = EditarUsuarioForm(initial={'username': username.username})
+        form = EditarUsuarioForm(initial={'first_name': username.first_name, 'last_name': username.last_name, 'email': username.email})
     
     return render(request, 'AppPrada/editar_user.html', {'form': form})
 

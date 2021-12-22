@@ -2,6 +2,7 @@
 {%extends 'AppPrada/lay_out.html'%}
 
 {% block content %}
+<title>Login</title>
     <div class="masthead-content text-center">
         <h1 class="display-4">Login</h1>
     </div>  
@@ -16,6 +17,7 @@
         <h1>{{mensaje}}</h1>
 
     {% endif %}
+
     <form method="POST">
         {%csrf_token%}
   <div class="form-group">
